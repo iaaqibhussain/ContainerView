@@ -9,64 +9,60 @@
 import UIKit
 
 class ContainerViewController: UIViewController {
- var firstVC: FirstViewController?
-    var vc : UIViewController!
-  
-    var segueIdentifier : String!
-
-    var lastViewController: UIViewController!
- 
+    private var vc : UIViewController!
+    
+    private var segueIdentifier : String!
+    /*Identifier For First Container SubView*/
+    @IBInspectable internal var firstLinkedSubView : String!
+    
+    private var lastViewController: UIViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            segueIdentifierReceivedFromParent("buttonOne")
-       
-            }
+  
+        if let identifier = firstLinkedSubView{
+        segueIdentifierReceivedFromParent(identifier)
+        }
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
+    
     func segueIdentifierReceivedFromParent(button: String){
-        if button == "buttonOne"
-        {
         
-            self.segueIdentifier = "first"
-            self.performSegueWithIdentifier(self.segueIdentifier, sender: nil)
-            
         
-        }
-        else if button == "buttonTwo"
-        {
         
-            self.segueIdentifier = "second"
-            self.performSegueWithIdentifier(self.segueIdentifier, sender: nil)
-           
-        }
-    
-    
+        self.segueIdentifier = button
+        self.performSegueWithIdentifier(self.segueIdentifier, sender: nil)
+        
+        
+        
+        
     }
     
     
-   
-   
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == segueIdentifier{
-       
             
-
+            
+            
             if lastViewController != nil{
-            
-               
-             lastViewController.view.removeFromSuperview()
-               
-            
-            
+                
+                
+                lastViewController.view.removeFromSuperview()
+                
+                
+                
             }
-
             
             
-            vc = segue.destinationViewController as! UIViewController
+            
+            vc = segue.destinationViewController
             self.addChildViewController(vc)
             vc.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width,height: self.view.frame.height)
             self.view.addSubview(vc.view)
@@ -75,8 +71,8 @@ class ContainerViewController: UIViewController {
             lastViewController = vc
             
         }
-    
+        
     }
-
-
+    
+    
 }

@@ -12,7 +12,7 @@ class FirstViewController: UIViewController {
     var First:String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("Hello")
+        print("Hello")
         // Do any additional setup after loading the view.
     }
 

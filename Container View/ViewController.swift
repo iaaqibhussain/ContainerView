@@ -28,13 +28,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func second(sender: AnyObject) {
-    containerView!.segueIdentifierReceivedFromParent("buttonTwo")
+    containerView!.segueIdentifierReceivedFromParent("second")
       
     }
 
     @IBAction func first(sender: AnyObject) {
 
-    containerView!.segueIdentifierReceivedFromParent("buttonOne")
+    containerView!.segueIdentifierReceivedFromParent("first")
     
     
     }
