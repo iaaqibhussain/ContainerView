@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+public class ContainerViewController: UIViewController {
     private var vc : UIViewController!
     
     private var segueIdentifier : String!
@@ -17,7 +17,7 @@ class ContainerViewController: UIViewController {
     
     private var lastViewController: UIViewController!
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
   
         if let identifier = firstLinkedSubView{
@@ -26,7 +26,7 @@ class ContainerViewController: UIViewController {
         
     }
     
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -46,7 +46,7 @@ class ContainerViewController: UIViewController {
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == segueIdentifier{
             
             
