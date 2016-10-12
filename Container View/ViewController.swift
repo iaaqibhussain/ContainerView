@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  
+//
 //
 //  Created by Aaqib Hussain on 03/08/2015.
 //  Copyright (c) 2015 Kode Snippets. All rights reserved.
@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
    
-    @IBOutlet weak var contain: UIView!
     
-    var containerView: ContainerViewController?
+    
+    var container: ContainerViewController!
     
     
     
@@ -31,20 +31,28 @@ class ViewController: UIViewController {
     @IBAction func segmentControl(sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0{
-        containerView!.segueIdentifierReceivedFromParent("first")
+        container!.segueIdentifierReceivedFromParent("first")
         
         }
         else{
         
-        containerView!.segueIdentifierReceivedFromParent("second")
+        container!.segueIdentifierReceivedFromParent("second")
         
         }
     
     }
+   
+    @IBAction func getText(sender: UIButton) {
+        
+        let getFirstVCObject = self.container.childViewControllers[0] as! FirstViewController
+        let getText = getFirstVCObject.firstVCTextfield.text!
+        print(getText)
+        
+    }
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "container"{
         
-        containerView = segue.destinationViewController as? ContainerViewController
+        container = segue.destinationViewController as! ContainerViewController
       
         
         }

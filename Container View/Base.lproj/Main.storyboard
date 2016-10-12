@@ -36,9 +36,18 @@
                                     <action selector="segmentControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="W5C-DS-Yfm"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ny4-go-wHG">
+                                <rect key="frame" x="131" y="478" width="58" height="30"/>
+                                <state key="normal" title="Get Text"/>
+                                <connections>
+                                    <action selector="getText:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HxX-eX-Zrc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ny4-go-wHG" firstAttribute="centerX" secondItem="lOk-dK-nZI" secondAttribute="centerX" id="7NZ-l0-0pr"/>
+                            <constraint firstItem="ny4-go-wHG" firstAttribute="top" secondItem="lOk-dK-nZI" secondAttribute="bottom" constant="8" id="GGx-Ig-Uca"/>
                             <constraint firstItem="tbd-rI-Uyc" firstAttribute="top" secondItem="ptt-Ye-VVa" secondAttribute="bottom" constant="38" id="Ka6-84-ubf"/>
                             <constraint firstItem="lOk-dK-nZI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="O8h-dJ-XMn"/>
                             <constraint firstItem="tbd-rI-Uyc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="Vq1-CT-8mm"/>
@@ -47,9 +56,6 @@
                             <constraint firstItem="lOk-dK-nZI" firstAttribute="top" secondItem="tbd-rI-Uyc" secondAttribute="bottom" constant="70" id="jVS-LU-jYe"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="contain" destination="lOk-dK-nZI" id="DC4-wT-eVM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="524" y="449"/>
         </scene>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="6vs-pc-Bqa">
             <objects>
-                <viewController id="l2D-Hb-dcK" sceneMemberID="viewController">
+                <viewController id="l2D-Hb-dcK" customClass="FirstViewController" customModule="Container_View" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pKF-22-V9Z"/>
                         <viewControllerLayoutGuide type="bottom" id="jfW-03-KMW"/>
@@ -101,25 +107,36 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rtr-y6-VZk">
+                                <rect key="frame" x="20" y="176" width="248" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274510000001" green="0.60784313729999995" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="03A-ey-A57" firstAttribute="centerY" secondItem="lR8-QV-aWX" secondAttribute="centerY" id="Kez-v1-ny6"/>
                             <constraint firstItem="03A-ey-A57" firstAttribute="centerX" secondItem="lR8-QV-aWX" secondAttribute="centerX" id="P6g-Lz-jDA"/>
+                            <constraint firstAttribute="trailing" secondItem="rtr-y6-VZk" secondAttribute="trailing" constant="20" id="W7n-tO-Pmf"/>
+                            <constraint firstItem="rtr-y6-VZk" firstAttribute="leading" secondItem="lR8-QV-aWX" secondAttribute="leading" constant="20" id="gRT-Y5-o25"/>
+                            <constraint firstItem="rtr-y6-VZk" firstAttribute="top" secondItem="03A-ey-A57" secondAttribute="bottom" constant="8" id="xQr-h4-S5y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="11e-wp-gag"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="288" height="314"/>
+                    <connections>
+                        <outlet property="firstVCTextfield" destination="rtr-y6-VZk" id="JHC-qG-nID"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idi-yt-3xY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="914" y="203"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="zPH-zt-i2S">
             <objects>
-                <viewController id="j6c-t7-gwT" sceneMemberID="viewController">
+                <viewController id="j6c-t7-gwT" customClass="SecondViewController" customModule="Container_View" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a7g-dN-MQW"/>
                         <viewControllerLayoutGuide type="bottom" id="ZCS-gX-XvI"/>
