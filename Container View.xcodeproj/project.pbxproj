@@ -14,7 +14,7 @@
 		7B5F332F1B70DD0300EDE94B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F332D1B70DD0300EDE94B /* LaunchScreen.xib */; };
 		7B5F333B1B70DD0300EDE94B /* Container_ViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F333A1B70DD0300EDE94B /* Container_ViewTests.swift */; };
 		7B5F33481B70DD8D00EDE94B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F33441B70DD8D00EDE94B /* ContainerViewController.swift */; };
-		7B5F33491B70DD8D00EDE94B /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F33451B70DD8D00EDE94B /* Empty.swift */; };
+		7B5F33491B70DD8D00EDE94B /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F33451B70DD8D00EDE94B /* EmptySegue.swift */; };
 		7B5F334A1B70DD8D00EDE94B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F33461B70DD8D00EDE94B /* FirstViewController.swift */; };
 		7B5F334B1B70DD8D00EDE94B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F33471B70DD8D00EDE94B /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +41,7 @@
 		7B5F33391B70DD0300EDE94B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B5F333A1B70DD0300EDE94B /* Container_ViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container_ViewTests.swift; sourceTree = "<group>"; };
 		7B5F33441B70DD8D00EDE94B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		7B5F33451B70DD8D00EDE94B /* Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
+		7B5F33451B70DD8D00EDE94B /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
 		7B5F33461B70DD8D00EDE94B /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		7B5F33471B70DD8D00EDE94B /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,8 +85,7 @@
 		7B5F331E1B70DD0300EDE94B /* Container View */ = {
 			isa = PBXGroup;
 			children = (
-				7B5F33441B70DD8D00EDE94B /* ContainerViewController.swift */,
-				7B5F33451B70DD8D00EDE94B /* Empty.swift */,
+				7B66D2D11DAE344300C88F7C /* ContainerView */,
 				7B5F33461B70DD8D00EDE94B /* FirstViewController.swift */,
 				7B5F33471B70DD8D00EDE94B /* SecondViewController.swift */,
 				7B5F33211B70DD0300EDE94B /* AppDelegate.swift */,
@@ -122,6 +121,15 @@
 				7B5F33391B70DD0300EDE94B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B66D2D11DAE344300C88F7C /* ContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				7B5F33451B70DD8D00EDE94B /* EmptySegue.swift */,
+				7B5F33441B70DD8D00EDE94B /* ContainerViewController.swift */,
+			);
+			name = ContainerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +237,7 @@
 				7B5F334B1B70DD8D00EDE94B /* SecondViewController.swift in Sources */,
 				7B5F334A1B70DD8D00EDE94B /* FirstViewController.swift in Sources */,
 				7B5F33271B70DD0300EDE94B /* ViewController.swift in Sources */,
-				7B5F33491B70DD8D00EDE94B /* Empty.swift in Sources */,
+				7B5F33491B70DD8D00EDE94B /* EmptySegue.swift in Sources */,
 				7B5F33481B70DD8D00EDE94B /* ContainerViewController.swift in Sources */,
 				7B5F33221B70DD0300EDE94B /* AppDelegate.swift in Sources */,
 			);
@@ -359,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Container View/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -369,6 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Container View/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

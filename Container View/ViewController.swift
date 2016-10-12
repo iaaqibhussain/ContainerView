@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,18 +28,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func second(sender: AnyObject) {
-    containerView!.segueIdentifierReceivedFromParent("second")
-      
-    }
-
-    @IBAction func first(sender: AnyObject) {
-
-    containerView!.segueIdentifierReceivedFromParent("first")
+    @IBAction func segmentControl(sender: UISegmentedControl) {
+        
+        if sender.selectedSegmentIndex == 0{
+        containerView!.segueIdentifierReceivedFromParent("first")
+        
+        }
+        else{
+        
+        containerView!.segueIdentifierReceivedFromParent("second")
+        
+        }
     
-    
     }
-
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "container"{
         

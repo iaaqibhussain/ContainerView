@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Empty: UIStoryboardSegue{
+class EmptySegue: UIStoryboardSegue{
     
     override func perform() {
     
