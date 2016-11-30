@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var container: ContainerViewController!
     
+    @IBOutlet var sendTextField: UITextField!
     
     
     
@@ -30,12 +31,15 @@ class ViewController: UIViewController {
 
     @IBAction func segmentControl(sender: UISegmentedControl) {
         
+
         if sender.selectedSegmentIndex == 0{
-        container!.segueIdentifierReceivedFromParent("first")
+
+          
+            container!.segueIdentifierReceivedFromParent("first")
         
         }
         else{
-        
+            
         container!.segueIdentifierReceivedFromParent("second")
         
         }
@@ -44,11 +48,46 @@ class ViewController: UIViewController {
    
     @IBAction func getText(sender: UIButton) {
         
+        
         let getFirstVCObject = self.container.childViewControllers[0] as! FirstViewController
         let getText = getFirstVCObject.firstVCTextfield.text!
         print(getText)
         
     }
+    
+    
+    
+    @IBAction func sendAction(sender: AnyObject) {
+
+        
+        if container.currentViewController.isKindOfClass(FirstViewController){
+        
+        if let getFirstVCObject = self.container.currentViewController as? FirstViewController
+        {
+            let getText = self.sendTextField.text
+            getFirstVCObject.firstVCLabel.text  = getText!
+        
+        
+        }
+        }
+        else if container.currentViewController.isKindOfClass(SecondViewController){
+        
+            if let getSecondVCObject = self.container.currentViewController as? SecondViewController
+            {
+                let getText = self.sendTextField.text
+                getSecondVCObject.secondVCLabel.text = getText!
+                
+                
+            }
+        
+        
+        
+        
+        }
+        
+    }
+    
+    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "container"{
         

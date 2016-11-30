@@ -11,6 +11,15 @@ import UIKit
 class FirstViewController: UIViewController {
     @IBOutlet var firstVCTextfield: UITextField!
     
+    @IBOutlet var firstVCLabel: UILabel!
+    
+    
+        
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -20,7 +29,6 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
        
     }
-    
-
- 
+   
+     
 }

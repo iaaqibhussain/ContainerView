@@ -1,6 +1,6 @@
 //
 //  ContainerViewController.swift
-//  
+//
 //
 //  Created by Aaqib Hussain on 03/08/2015.
 //  Copyright (c) 2015 Kode Snippets. All rights reserved.
@@ -9,19 +9,32 @@
 import UIKit
 
 public class ContainerViewController: UIViewController {
-    private var vc : UIViewController!
+    //Manipulating container views
+    private weak var viewController : UIViewController!
+    //Keeping track of containerViews
+    private var containerViewObjects = Dictionary<String,UIViewController>()
+    
+    /** Specifies which ever container view is on the front */
+    public var currentViewController : UIViewController{
+        get {
+            return self.viewController
+            
+        }
+    }
+    
     
     private var segueIdentifier : String!
+    
     /*Identifier For First Container SubView*/
     @IBInspectable internal var firstLinkedSubView : String!
+    private let frame = UIScreen.mainScreen().bounds
     
-    private var lastViewController: UIViewController!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-  
+        
         if let identifier = firstLinkedSubView{
-        segueIdentifierReceivedFromParent(identifier)
+            segueIdentifierReceivedFromParent(identifier)
         }
         
     }
@@ -31,13 +44,12 @@ public class ContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func segueIdentifierReceivedFromParent(button: String){
+    func segueIdentifierReceivedFromParent(identifier: String){
         
         
         
-        self.segueIdentifier = button
+        self.segueIdentifier = identifier
         self.performSegueWithIdentifier(self.segueIdentifier, sender: nil)
-        
         
         
         
@@ -50,25 +62,41 @@ public class ContainerViewController: UIViewController {
         if segue.identifier == segueIdentifier{
             
             
-            
-            if lastViewController != nil{
+            //Remove Container View
+            if viewController != nil{
                 
                 
-                lastViewController.view.removeFromSuperview()
+                viewController.view.removeFromSuperview()
+                viewController = nil
                 
+              
+                
+            }
+            //Add to dictionary if isn't already there
+            if ((self.containerViewObjects[self.segueIdentifier] == nil)){
+                viewController = segue.destinationViewController
+                self.containerViewObjects[self.segueIdentifier] = viewController
+                
+            }else{
+                for (key, value) in self.containerViewObjects{
+                    
+                    if key == self.segueIdentifier{
+                        
+                        viewController = value
+                        
+                        
+                    }
+                    
+                }
                 
                 
             }
             
-            
-            
-            vc = segue.destinationViewController
-            self.addChildViewController(vc)
-            vc.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width,height: self.view.frame.height)
-            self.view.addSubview(vc.view)
-            
-            vc.didMoveToParentViewController(self)
-            lastViewController = vc
+            self.addChildViewController(viewController)
+            viewController.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width,height: self.view.frame.height)
+            self.view.addSubview(viewController.view)
+            viewController.didMoveToParentViewController(self)
+           
             
         }
         

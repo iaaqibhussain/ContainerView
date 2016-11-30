@@ -10,6 +10,7 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var secondVCLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
