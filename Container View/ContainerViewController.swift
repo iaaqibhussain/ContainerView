@@ -27,7 +27,6 @@ public class ContainerViewController: UIViewController {
     
     /*Identifier For First Container SubView*/
     @IBInspectable internal var firstLinkedSubView : String!
-    private let frame = UIScreen.mainScreen().bounds
     
     
     override public func viewDidLoad() {
