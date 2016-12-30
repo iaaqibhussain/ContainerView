@@ -49,9 +49,10 @@ class ViewController: UIViewController {
     @IBAction func getText(sender: UIButton) {
         
         
-        let getFirstVCObject = self.container.childViewControllers[0] as! FirstViewController
+        if let getFirstVCObject = self.container.currentViewController as? FirstViewController{
         let getText = getFirstVCObject.firstVCTextfield.text!
         print(getText)
+        }
         
     }
     

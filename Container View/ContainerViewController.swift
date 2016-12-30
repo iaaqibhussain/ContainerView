@@ -32,12 +32,14 @@ public class ContainerViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+    }
+    public override func viewDidAppear(animated: Bool) {
         if let identifier = firstLinkedSubView{
             segueIdentifierReceivedFromParent(identifier)
         }
-        
     }
-    
     override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
