@@ -5,3 +5,6 @@ Read tutorial: http://kodesnippets.com/index.php/2015/08/11/container-view-in-io
 
 In Objective-C
 https://github.com/iaaqib/Container-View-Controller-
+
+Install Via Pod:
+https://github.com/iaaqib/AHCarouselViewController
