@@ -7,4 +7,4 @@ In Objective-C
 https://github.com/iaaqib/Container-View-Controller-
 
 Install Via Pod:
-https://github.com/iaaqib/AHCarouselViewController
+https://github.com/iaaqib/AHContainerViewController
