@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func segmentControl(sender: UISegmentedControl) {
+    @IBAction func segmentControl(_ sender: UISegmentedControl) {
         
 
         if sender.selectedSegmentIndex == 0{
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     }
    
-    @IBAction func getText(sender: UIButton) {
+    @IBAction func getText(_ sender: UIButton) {
         
         
         if let getFirstVCObject = self.container.currentViewController as? FirstViewController{
@@ -58,10 +58,10 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func sendAction(sender: AnyObject) {
+    @IBAction func sendAction(_ sender: AnyObject) {
 
         
-        if container.currentViewController.isKindOfClass(FirstViewController){
+        if container.currentViewController.isKind(of: FirstViewController.self){
         
         if let getFirstVCObject = self.container.currentViewController as? FirstViewController
         {
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         
         }
         }
-        else if container.currentViewController.isKindOfClass(SecondViewController){
+        else if container.currentViewController.isKind(of: SecondViewController.self){
         
             if let getSecondVCObject = self.container.currentViewController as? SecondViewController
             {
@@ -89,10 +89,10 @@ class ViewController: UIViewController {
     }
     
     
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "container"{
         
-        container = segue.destinationViewController as! ContainerViewController
+        container = segue.destination as! ContainerViewController
       
         
         }

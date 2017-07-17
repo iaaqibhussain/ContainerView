@@ -8,14 +8,14 @@
 
 import UIKit
 
-public class ContainerViewController: UIViewController {
+open class ContainerViewController: UIViewController {
     //Manipulating container views
-    private weak var viewController : UIViewController!
+    fileprivate weak var viewController : UIViewController!
     //Keeping track of containerViews
-    private var containerViewObjects = Dictionary<String,UIViewController>()
+    fileprivate var containerViewObjects = Dictionary<String,UIViewController>()
     
     /** Specifies which ever container view is on the front */
-    public var currentViewController : UIViewController{
+    open var currentViewController : UIViewController{
         get {
             return self.viewController
             
@@ -23,34 +23,34 @@ public class ContainerViewController: UIViewController {
     }
     
     
-    private var segueIdentifier : String!
+    fileprivate var segueIdentifier : String!
     
     /*Identifier For First Container SubView*/
     @IBInspectable internal var firstLinkedSubView : String!
     
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         
         
     }
-    public override func viewDidAppear(animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         if let identifier = firstLinkedSubView{
             segueIdentifierReceivedFromParent(identifier)
         }
     }
-    override public func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func segueIdentifierReceivedFromParent(identifier: String){
+    func segueIdentifierReceivedFromParent(_ identifier: String){
         
         
         
         self.segueIdentifier = identifier
-        self.performSegueWithIdentifier(self.segueIdentifier, sender: nil)
+        self.performSegue(withIdentifier: self.segueIdentifier, sender: nil)
         
         
         
@@ -59,7 +59,7 @@ public class ContainerViewController: UIViewController {
     
     
     
-    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier{
             
             
@@ -75,7 +75,7 @@ public class ContainerViewController: UIViewController {
             }
             //Add to dictionary if isn't already there
             if ((self.containerViewObjects[self.segueIdentifier] == nil)){
-                viewController = segue.destinationViewController
+                viewController = segue.destination
                 self.containerViewObjects[self.segueIdentifier] = viewController
                 
             }else{
@@ -96,7 +96,7 @@ public class ContainerViewController: UIViewController {
             self.addChildViewController(viewController)
             viewController.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width,height: self.view.frame.height)
             self.view.addSubview(viewController.view)
-            viewController.didMoveToParentViewController(self)
+            viewController.didMove(toParentViewController: self)
            
             
         }
