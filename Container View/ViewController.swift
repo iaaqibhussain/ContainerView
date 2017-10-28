@@ -37,10 +37,12 @@ class ViewController: UIViewController {
           
             container!.segueIdentifierReceivedFromParent("first")
         
-        }
-        else{
+        }else{
             
         container!.segueIdentifierReceivedFromParent("second")
+        var controller = container.currentViewController as? SecondViewController
+            controller?.delegate = self
+            
         
         }
     
@@ -101,4 +103,15 @@ class ViewController: UIViewController {
 
 
 }
+extension ViewController: SecondViewDelegate{
 
+    func sendToThirdViewController() {
+        container.segueIdentifierReceivedFromParent("third")
+    }
+
+
+
+
+
+
+}

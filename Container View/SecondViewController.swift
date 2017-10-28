@@ -7,9 +7,13 @@
 //
 
 import UIKit
-
+protocol SecondViewDelegate: class {
+    func sendToThirdViewController()
+}
 class SecondViewController: UIViewController {
-
+    
+    weak var delegate: SecondViewDelegate? = nil
+    
     @IBOutlet weak var secondVCLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,9 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func goToThirdViewController(_ sender: UIButton) {
+        delegate?.sendToThirdViewController()
+    }
 
     /*
     // MARK: - Navigation

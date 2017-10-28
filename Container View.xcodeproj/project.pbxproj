@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B47A7491FA4A07A00E396FE /* Secondary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B47A7481FA4A07A00E396FE /* Secondary.storyboard */; };
 		7B5F33221B70DD0300EDE94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F33211B70DD0300EDE94B /* AppDelegate.swift */; };
 		7B5F33271B70DD0300EDE94B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F33261B70DD0300EDE94B /* ViewController.swift */; };
 		7B5F332A1B70DD0300EDE94B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F33281B70DD0300EDE94B /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B47A7481FA4A07A00E396FE /* Secondary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Secondary.storyboard; sourceTree = "<group>"; };
 		7B5F331C1B70DD0300EDE94B /* Container View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Container View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5F33201B70DD0300EDE94B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B5F33211B70DD0300EDE94B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				7B5F33211B70DD0300EDE94B /* AppDelegate.swift */,
 				7B5F33261B70DD0300EDE94B /* ViewController.swift */,
 				7B5F33281B70DD0300EDE94B /* Main.storyboard */,
+				7B47A7481FA4A07A00E396FE /* Secondary.storyboard */,
 				7B5F332B1B70DD0300EDE94B /* Images.xcassets */,
 				7B5F332D1B70DD0300EDE94B /* LaunchScreen.xib */,
 				7B5F331F1B70DD0300EDE94B /* Supporting Files */,
@@ -219,6 +222,7 @@
 				7B5F332A1B70DD0300EDE94B /* Main.storyboard in Resources */,
 				7B5F332F1B70DD0300EDE94B /* LaunchScreen.xib in Resources */,
 				7B5F332C1B70DD0300EDE94B /* Images.xcassets in Resources */,
+				7B47A7491FA4A07A00E396FE /* Secondary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
