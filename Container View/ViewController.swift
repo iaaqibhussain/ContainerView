@@ -94,7 +94,12 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "container"{
             container = segue.destination as! ContainerViewController
-            container.animationDurationWithOptions = (0.2, .transitionFlipFromBottom)
+            //For adding animation to the transition of containerviews you can use container's object property
+            // animationDurationWithOptions and pass in the time duration and transition animation option as a tuple
+            // Animations that can be used
+            // .transitionFlipFromLeft, .transitionFlipFromRight, .transitionCurlUp
+            // .transitionCurlDown, .transitionCrossDissolve, .transitionFlipFromTop
+            container.animationDurationWithOptions = (0.5, .transitionCrossDissolve)
         }
     }
     
@@ -106,10 +111,6 @@ extension ViewController: SecondViewDelegate{
     func sendToThirdViewController() {
         container.segueIdentifierReceivedFromParent("third")
     }
-    
-    
-    
-    
     
     
 }
