@@ -13,6 +13,8 @@ open class ContainerViewController: UIViewController {
     fileprivate weak var viewController : UIViewController!
     //Keeping track of containerViews
     fileprivate var containerViewObjects = Dictionary<String,UIViewController>()
+    /** Pass in a tuple of required TimeInterval with UIViewAnimationOptions */
+    var animationDurationWithOptions:(TimeInterval, UIViewAnimationOptions) = (0,[])
     
     /** Specifies which ever container view is on the front */
     open var currentViewController : UIViewController{
@@ -32,8 +34,6 @@ open class ContainerViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
     }
     open override func viewDidAppear(_ animated: Bool) {
         if let identifier = firstLinkedSubView{
@@ -47,12 +47,8 @@ open class ContainerViewController: UIViewController {
     
     func segueIdentifierReceivedFromParent(_ identifier: String){
         
-        
-        
         self.segueIdentifier = identifier
         self.performSegue(withIdentifier: self.segueIdentifier, sender: nil)
-        
-        
         
     }
     
@@ -61,16 +57,10 @@ open class ContainerViewController: UIViewController {
     
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier{
-            
-            
             //Remove Container View
             if viewController != nil{
-                
-                
                 viewController.view.removeFromSuperview()
                 viewController = nil
-                
-              
                 
             }
             //Add to dictionary if isn't already there
@@ -82,21 +72,19 @@ open class ContainerViewController: UIViewController {
                 for (key, value) in self.containerViewObjects{
                     
                     if key == self.segueIdentifier{
-                        
                         viewController = value
-                        
-                        
                     }
-                    
                 }
                 
-                
             }
-            
-            self.addChildViewController(viewController)
-            viewController.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width,height: self.view.frame.height)
-            self.view.addSubview(viewController.view)
-            viewController.didMove(toParentViewController: self)
+            UIView.transition(with: self.view, duration: animationDurationWithOptions.0, options: animationDurationWithOptions.1, animations: {
+                self.addChildViewController(self.viewController)
+                self.viewController.view.frame = CGRect(x: 0,y: 0, width: self.view.frame.width,height: self.view.frame.height)
+                self.view.addSubview(self.viewController.view)
+            }, completion: { (complete) in
+                self.viewController.didMove(toParentViewController: self)
+            })
+           
            
             
         }

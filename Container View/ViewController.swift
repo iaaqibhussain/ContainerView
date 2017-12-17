@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-   
+    
     
     
     var container: ContainerViewController!
@@ -23,37 +23,37 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func segmentControl(_ sender: UISegmentedControl) {
         
-
-        if sender.selectedSegmentIndex == 0{
-
-          
-            container!.segueIdentifierReceivedFromParent("first")
         
+        if sender.selectedSegmentIndex == 0{
+            
+            
+            container!.segueIdentifierReceivedFromParent("first")
+            
         }else{
             
-        container!.segueIdentifierReceivedFromParent("second")
-        var controller = container.currentViewController as? SecondViewController
+            container!.segueIdentifierReceivedFromParent("second")
+            var controller = container.currentViewController as? SecondViewController
             controller?.delegate = self
             
-        
+            
         }
-    
+        
     }
-   
+    
     @IBAction func getText(_ sender: UIButton) {
         
         
         if let getFirstVCObject = self.container.currentViewController as? FirstViewController{
-        let getText = getFirstVCObject.firstVCTextfield.text!
-        print(getText)
+            let getText = getFirstVCObject.firstVCTextfield.text!
+            print(getText)
         }
         
     }
@@ -61,20 +61,20 @@ class ViewController: UIViewController {
     
     
     @IBAction func sendAction(_ sender: AnyObject) {
-
+        
         
         if container.currentViewController.isKind(of: FirstViewController.self){
-        
-        if let getFirstVCObject = self.container.currentViewController as? FirstViewController
-        {
-            let getText = self.sendTextField.text
-            getFirstVCObject.firstVCLabel.text  = getText!
-        
-        
-        }
+            
+            if let getFirstVCObject = self.container.currentViewController as? FirstViewController
+            {
+                let getText = self.sendTextField.text
+                getFirstVCObject.firstVCLabel.text  = getText!
+                
+                
+            }
         }
         else if container.currentViewController.isKind(of: SecondViewController.self){
-        
+            
             if let getSecondVCObject = self.container.currentViewController as? SecondViewController
             {
                 let getText = self.sendTextField.text
@@ -82,36 +82,34 @@ class ViewController: UIViewController {
                 
                 
             }
-        
-        
-        
-        
+            
+            
+            
+            
         }
         
     }
     
     
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "container"{
-        
-        container = segue.destination as! ContainerViewController
-      
-        
+            container = segue.destination as! ContainerViewController
+            container.animationDurationWithOptions = (0.2, .transitionFlipFromBottom)
         }
     }
-
-
-
+    
+    
+    
 }
 extension ViewController: SecondViewDelegate{
-
+    
     func sendToThirdViewController() {
         container.segueIdentifierReceivedFromParent("third")
     }
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
 }
