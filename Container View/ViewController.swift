@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         }else{
             
             container!.segueIdentifierReceivedFromParent("second")
-            var controller = container.currentViewController as? SecondViewController
+            let controller = container.currentViewController as? SecondViewController
             controller?.delegate = self
             
             
