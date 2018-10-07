@@ -23,7 +23,10 @@ open class ContainerViewController: UIViewController {
             
         }
     }
-    
+    /** Returns all the embedded controllers **/
+    open var viewControllers: [UIViewController] {
+        return Array(containerViewObjects.values)
+    }
     
     fileprivate var segueIdentifier : String!
     
