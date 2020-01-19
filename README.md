@@ -1,10 +1,10 @@
 # Container-View
 Using Container View in iOS with Swift
 
-Read tutorial: http://kodesnippets.com/index.php/2015/08/11/container-view-in-ios/
+Read tutorial: http://kodesnippets.com/container-view-in-ios/
 
 In Objective-C
-https://github.com/iaaqib/Container-View-Controller-
+https://github.com/iaaqibhussain/Container-View-Controller-
 
 Install Via Pod:
-https://github.com/iaaqib/AHContainerViewController
+https://github.com/iaaqibhussain/AHContainerViewController
